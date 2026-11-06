@@ -16,3 +16,16 @@ void registrarPrestamo() {
 
   print('Préstamo registrado con ID ${nuevo.id}.');
 }
+
+void consultarTodos() {
+  print('\n--- Lista de préstamos ---');
+
+  if (prestamos.isEmpty) {
+    print('No hay préstamos registrados.');
+    return;
+  }
+
+  for (Prestamo p in prestamos) {
+    p.mostrarInformacion();
+  }
+}

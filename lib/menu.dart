@@ -21,7 +21,7 @@ void ejecutarOpcion(String opcion) {
       registrarPrestamo();
       break;
     case '2':
-      print('Consultar todos (pendiente)');
+      consultarTodos();
       break;
     case '3':
       print('Buscar (pendiente)');
