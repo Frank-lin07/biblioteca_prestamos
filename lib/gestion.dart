@@ -100,7 +100,23 @@ Prestamo? buscarPorId(int id) {
 
 void modificarPrestamo() {
   print('\n--- Modificar préstamo ---');
+  print('1. Cambiar nombre del usuario');
+  print('2. Marcar como devuelto');
+  String opcion = leerTexto('Seleccione una opción: ').trim();
 
+  switch (opcion) {
+    case '1':
+      cambiarUsuario();
+      break;
+    case '2':
+      devolverPrestamo();
+      break;
+    default:
+      print('Opción no válida.');
+  }
+}
+
+void cambiarUsuario() {
   if (prestamos.isEmpty) {
     print('No hay préstamos registrados.');
     return;
@@ -115,9 +131,29 @@ void modificarPrestamo() {
   }
 
   prestamo.mostrarInformacion();
-  print('Solo se puede modificar el nombre del usuario.');
   String nuevoUsuario = leerTextoNoVacio('Nuevo nombre del usuario: ');
 
   prestamo.usuario = nuevoUsuario;
   print('Préstamo actualizado.');
+}
+
+void devolverPrestamo() {
+  print('\n--- Devolver libro ---');
+
+  int id = leerEnteroPositivo('ID del préstamo a devolver: ');
+  Prestamo? prestamo = buscarPorId(id);
+
+  if (prestamo == null) {
+    print('No existe un préstamo con ese ID.');
+    return;
+  }
+
+  if (prestamo.devuelto) {
+    print('Ese préstamo ya fue devuelto.');
+    return;
+  }
+
+  prestamo.devuelto = true;
+  librosPrestados.remove(prestamo.libro.toLowerCase());
+  print('Libro devuelto. Ya puede prestarse de nuevo.');
 }
