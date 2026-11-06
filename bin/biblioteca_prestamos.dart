@@ -1,5 +1,6 @@
-import 'package:biblioteca_prestamos/biblioteca_prestamos.dart' as biblioteca_prestamos;
+import '../lib/prestamo.dart';
 
-void main(List<String> arguments) {
-  print('Hello world: ${biblioteca_prestamos.calculate()}!');
+void main() {
+  Prestamo p1 = Prestamo(1, 'Cien años de soledad', 'Ana', '2026-11-05');
+  p1.mostrarInformacion();
 }

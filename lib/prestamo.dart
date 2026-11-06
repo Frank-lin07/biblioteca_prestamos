@@ -7,4 +7,10 @@ class Prestamo {
 
   Prestamo(this.id, this.libro, this.usuario, this.fechaPrestamo,
       {this.devuelto = false});
+
+        void mostrarInformacion() {
+    String estado = devuelto ? 'Devuelto' : 'Activo';
+    print('[$id] $libro | Usuario: $usuario | Fecha: $fechaPrestamo | $estado');
+  }
+  
 }
