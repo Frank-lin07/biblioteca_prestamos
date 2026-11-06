@@ -54,3 +54,37 @@ void buscarPorUsuario() {
     print('No se encontraron préstamos para ese usuario.');
   }
 }
+
+void buscarPorLibro() {
+  String texto = leerTextoNoVacio('Título del libro a buscar: ').toLowerCase();
+  bool encontrado = false;
+
+  for (Prestamo p in prestamos) {
+    if (p.libro.toLowerCase().contains(texto)) {
+      p.mostrarInformacion();
+      encontrado = true;
+    }
+  }
+
+  if (!encontrado) {
+    print('No se encontraron préstamos para ese libro.');
+  }
+}
+
+void buscarPrestamo() {
+  print('\n--- Buscar préstamo ---');
+  print('1. Por nombre de usuario');
+  print('2. Por título de libro');
+  String opcion = leerTexto('Seleccione una opción: ').trim();
+
+  switch (opcion) {
+    case '1':
+      buscarPorUsuario();
+      break;
+    case '2':
+      buscarPorLibro();
+      break;
+    default:
+      print('Opción no válida.');
+  }
+}
