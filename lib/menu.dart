@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'gestion.dart';
 
 void mostrarMenu() {
   print('\nSISTEMA DE GESTIÓN DE PRÉSTAMOS');
@@ -17,7 +18,7 @@ void mostrarMenu() {
 void ejecutarOpcion(String opcion) {
   switch (opcion) {
     case '1':
-      print('Registrar (pendiente)');
+      registrarPrestamo();
       break;
     case '2':
       print('Consultar todos (pendiente)');
