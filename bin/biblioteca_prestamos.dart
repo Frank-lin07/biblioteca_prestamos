@@ -1,6 +1,8 @@
-import '../lib/prestamo.dart';
+import '../lib/menu.dart';
+import 'dart:io';
 
 void main() {
-  Prestamo p1 = Prestamo(1, 'Cien años de soledad', 'Ana', '2026-11-05');
-  p1.mostrarInformacion();
+  mostrarMenu();
+  String? opcion = stdin.readLineSync();
+  ejecutarOpcion(opcion ?? '');
 }
