@@ -194,3 +194,24 @@ void eliminarPrestamo() {
   prestamos.remove(prestamo);
   print('Préstamo eliminado.');
 }
+
+void mostrarResumen() {
+  print('\n--- Resumen de préstamos ---');
+
+  if (prestamos.isEmpty) {
+    print('No hay préstamos registrados.');
+    return;
+  }
+
+  Map<String, int> prestamosPorUsuario = {};
+
+  for (Prestamo p in prestamos) {
+    String clave = p.usuario.toLowerCase();
+    prestamosPorUsuario[clave] = (prestamosPorUsuario[clave] ?? 0) + 1;
+  }
+
+  print('Préstamos por usuario:');
+  prestamosPorUsuario.forEach((usuario, cantidad) {
+    print('- $usuario: $cantidad');
+  });
+}
