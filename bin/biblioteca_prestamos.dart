@@ -1,5 +1,4 @@
-import '../lib/menu.dart';
-import 'dart:io';
+import 'package:biblioteca_prestamos/menu.dart';import 'dart:io';
 
 void main() {
   String opcion = '';
