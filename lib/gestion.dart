@@ -210,6 +210,23 @@ void mostrarResumen() {
     prestamosPorUsuario[clave] = (prestamosPorUsuario[clave] ?? 0) + 1;
   }
 
+  int activos = 0;
+  int devueltos = 0;
+
+  for (Prestamo p in prestamos) {
+    if (p.devuelto) {
+      devueltos++;
+    } else {
+      activos++;
+    }
+  }
+
+  print('Total de préstamos: ${prestamos.length}');
+  print('Activos: $activos');
+  print('Devueltos: $devueltos');
+  print('Libros prestados ahora: ${librosPrestados.length}');
+  print('');
+
   print('Préstamos por usuario:');
   prestamosPorUsuario.forEach((usuario, cantidad) {
     print('- $usuario: $cantidad');
