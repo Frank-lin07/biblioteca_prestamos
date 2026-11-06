@@ -27,7 +27,7 @@ void ejecutarOpcion(String opcion) {
       buscarPrestamo();
       break;
     case '4':
-      print('Modificar (pendiente)');
+      modificarPrestamo();
       break;
     case '5':
       print('Eliminar (pendiente)');

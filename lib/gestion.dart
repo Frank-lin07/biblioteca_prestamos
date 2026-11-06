@@ -88,3 +88,36 @@ void buscarPrestamo() {
       print('Opción no válida.');
   }
 }
+
+Prestamo? buscarPorId(int id) {
+  for (Prestamo p in prestamos) {
+    if (p.id == id) {
+      return p;
+    }
+  }
+  return null;
+}
+
+void modificarPrestamo() {
+  print('\n--- Modificar préstamo ---');
+
+  if (prestamos.isEmpty) {
+    print('No hay préstamos registrados.');
+    return;
+  }
+
+  int id = leerEnteroPositivo('ID del préstamo a modificar: ');
+  Prestamo? prestamo = buscarPorId(id);
+
+  if (prestamo == null) {
+    print('No existe un préstamo con ese ID.');
+    return;
+  }
+
+  prestamo.mostrarInformacion();
+  print('Solo se puede modificar el nombre del usuario.');
+  String nuevoUsuario = leerTextoNoVacio('Nuevo nombre del usuario: ');
+
+  prestamo.usuario = nuevoUsuario;
+  print('Préstamo actualizado.');
+}
