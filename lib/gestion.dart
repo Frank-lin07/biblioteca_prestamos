@@ -140,6 +140,11 @@ void cambiarUsuario() {
 void devolverPrestamo() {
   print('\n--- Devolver libro ---');
 
+    if (prestamos.isEmpty) {
+    print('No hay préstamos registrados.');
+    return;
+  }
+
   int id = leerEnteroPositivo('ID del préstamo a devolver: ');
   Prestamo? prestamo = buscarPorId(id);
 
