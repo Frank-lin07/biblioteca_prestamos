@@ -24,7 +24,7 @@ void ejecutarOpcion(String opcion) {
       consultarTodos();
       break;
     case '3':
-      print('Buscar (pendiente)');
+      buscarPorUsuario();
       break;
     case '4':
       print('Modificar (pendiente)');

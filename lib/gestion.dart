@@ -38,3 +38,19 @@ void consultarTodos() {
     p.mostrarInformacion();
   }
 }
+
+void buscarPorUsuario() {
+  String texto = leerTextoNoVacio('Nombre del usuario a buscar: ').toLowerCase();
+  bool encontrado = false;
+
+  for (Prestamo p in prestamos) {
+    if (p.usuario.toLowerCase().contains(texto)) {
+      p.mostrarInformacion();
+      encontrado = true;
+    }
+  }
+
+  if (!encontrado) {
+    print('No se encontraron préstamos para ese usuario.');
+  }
+}
