@@ -157,3 +157,35 @@ void devolverPrestamo() {
   librosPrestados.remove(prestamo.libro.toLowerCase());
   print('Libro devuelto. Ya puede prestarse de nuevo.');
 }
+
+void eliminarPrestamo() {
+  print('\n--- Eliminar préstamo ---');
+
+  if (prestamos.isEmpty) {
+    print('No hay préstamos registrados.');
+    return;
+  }
+
+  int id = leerEnteroPositivo('ID del préstamo a eliminar: ');
+  Prestamo? prestamo = buscarPorId(id);
+
+  if (prestamo == null) {
+    print('No existe un préstamo con ese ID.');
+    return;
+  }
+
+  prestamo.mostrarInformacion();
+  String confirmacion =
+      leerTexto('¿Seguro que desea eliminarlo? (s/n): ').trim().toLowerCase();
+
+  if (confirmacion != 's') {
+    print('Eliminación cancelada.');
+    return;
+  }
+
+  if (!prestamo.devuelto) {
+    librosPrestados.remove(prestamo.libro.toLowerCase());
+  }
+  prestamos.remove(prestamo);
+  print('Préstamo eliminado.');
+}

@@ -30,7 +30,7 @@ void ejecutarOpcion(String opcion) {
       modificarPrestamo();
       break;
     case '5':
-      print('Eliminar (pendiente)');
+      eliminarPrestamo();
       break;
     case '6':
       print('Mostrar resumen (pendiente)');
